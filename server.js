@@ -4,7 +4,7 @@ const express = require("express");
 const Mainrouter = require("./app.js");
 const cors = require("cors");
 require('dotenv').config();
-const PORT=process.env.PORT || 5000;
+const PORT=5000;
 //middlwewares used
 const app = express();
 app.use(cors());

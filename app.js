@@ -18,6 +18,7 @@ const transporter = nodemailer.createTransport({
 router.post("/connect_with_me",async(req,res)=>{ 
    try {
     const received =req.body;
+    console.log(received)
     if(received.formDetails.email.length===0){
         console.log("Error of no email")
         throw({"message":"Enter your email first"});
