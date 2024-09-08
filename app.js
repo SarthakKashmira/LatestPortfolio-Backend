@@ -18,18 +18,18 @@ const transporter = nodemailer.createTransport({
 router.post("/connect_with_me",async(req,res)=>{ 
    try {
     const received =req.body;
-    console.log(received)
-    if(received.formDetails.email.length===0){
+    console.log("HEllloooo",received)
+    if(received.email.length===0){
         console.log("Error of no email")
         throw({"message":"Enter your email first"});
     }
 
-    const result=await UserModel.findOne({email:req.body.formDetails.email});
+    const result=await UserModel.findOne({email:req.body.email});
     console.log(result);
     if(result)
     {throw({"message":"User Already Exists.Please enter another email."});}
 
-    const response = await UserModel.create(req.body.formDetails);
+    const response = await UserModel.create(req.body);
     console.log(response)
     if(response && response.email.length!=0){
         try{
